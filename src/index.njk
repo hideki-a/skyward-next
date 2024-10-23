@@ -1,0 +1,22 @@
+---
+layout: base
+isHome: true
+meta:
+  title: NET HEROES
+  description: NET HEROESのホームページです。
+---
+
+<div><img src="/vite.svg" width="100" height="100" alt=""></div>
+
+<h2>見出し</h2>
+<p>本文が入ります。</p>
+<ul>
+  <li><a href="/company/">会社概要</a></li>
+  <li><a href="/company/history.html">沿革</a></li>
+</ul>
+
+{% for post in entries %}
+  {% if loop.first %}<ul>{% endif %}
+  <li>{{ post.published_on | dateToFormat }} <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+  {% if loop.last %}</ul>{% endif %}
+{% endfor %}
